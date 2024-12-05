@@ -1,0 +1,19 @@
+﻿<Window x:Class="InitialProject.View.AccommodationGuestsNumberInput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="AccommodationGuestsNumberInput" Width="350" Height="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Margin="38,38,43,195" FontSize="15">Choose number of guests:</Label>
+        <Button x:Name="decrementNumberOfGuests" Click="DecrementGuestsNumber"  Content="-" TextElement.FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="45" Width="38" Margin="50,0,0,0"/>
+
+        <TextBlock x:Name="numberOfGuests" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="118" TextAlignment="Center" Height="45" Background="#FFDFDCDC" FontSize="16" TextElement.FontSize="27"/>
+        <Button x:Name="incrementNumberOfGuests" Click="IncrementGuestsNumber"  Content="+" TextElement.FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Height="45"  Width="38" Background="#FFDDDDDD" Margin="0,0,50,0"/>
+        <Button Content="OK" TextElement.FontWeight="Bold" HorizontalAlignment="Left" Margin="55,0,0,30" VerticalAlignment="Bottom" Width="68" Click="Confirm_Click" Height="27"/>
+        <Button Content="Cancel" TextElement.FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,55,30" VerticalAlignment="Bottom" Width="68" Click="Cancel_Click" Height="27"/>
+
+    </Grid>
+</Window>

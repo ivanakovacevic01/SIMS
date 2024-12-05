@@ -1,0 +1,53 @@
+﻿<Window x:Class="InitialProject.View.AccommodationReservationForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="AccommodationReservationForm" Height="501" Width="420" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Start date:" Margin="65,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" TextElement.FontWeight="DemiBold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Calendar x:Name="CalendarStart" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,0,0" SelectedDate="{Binding Path=StartDate, Mode=TwoWay}"></Calendar>
+        <Calendar x:Name="CalendarEnd" SelectedDate="{Binding Path=EndDate, Mode=TwoWay}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,50,10,0"></Calendar>
+        <Label Content="End date:" Margin="0,20,65,0" VerticalAlignment="Top" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" TextElement.FontWeight="DemiBold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+        <TextBlock x:Name="numberOfDays" Text="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="124" TextAlignment="Center" Height="30" Background="#FFDFDCDC" FontSize="16" Margin="0,0,0,162"/>
+        <Button x:Name="incrementNumberOfDays" Click="IncrementDaysNumber"  Content="+" TextElement.FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Margin="282,0,0,162" Width="37" Background="#FFDDDDDD"/>
+        <Button x:Name="decrementNumberOfDays" Click="DecrementDaysNumber" Content="-" TextElement.FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="37" Margin="94,0,0,162"/>
+        <Label Content="Number of days to stay:" Margin="0,242,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" TextElement.FontWeight="DemiBold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+
+
+        <Button Content="OK" TextElement.FontWeight="Bold" HorizontalAlignment="Left" Margin="120,428,0,0" VerticalAlignment="Top" Width="68" Click="Confirm_Click" Height="28"/>
+        <Button Content="Cancel" TextElement.FontWeight="Bold" HorizontalAlignment="Right" Margin="0,429,120,0" VerticalAlignment="Top" Width="68" Click="Cancel_Click" Height="27"/>
+
+    </Grid>
+</Window>

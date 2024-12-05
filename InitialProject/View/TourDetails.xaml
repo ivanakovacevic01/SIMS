@@ -1,0 +1,16 @@
+﻿<Window x:Class="InitialProject.View.TourDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="TourDetails" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="imagesList" Width="500" HorizontalAlignment="Center" Margin="0,52,0,10"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="211" Width="135" Text="{Binding Path=TourInstance.Tour.Description,UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Description:" TextElement.FontWeight="Bold" HorizontalAlignment="Left" Margin="39,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.044,0.541"/>
+        <Label Content="Photos" TextElement.FontWeight="Bold" HorizontalAlignment="Left" Margin="368,20,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,75 @@
+﻿<Window x:Class="InitialProject.View.TourForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="TourForm" Height="790" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,10,0,0">
+        <Grid Height="630">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="150*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Margin="0,10,0,10">Name:</Label>
+            <Label Grid.Row="1" Grid.Column="0" Margin="0,10,0,10">Maximum number of guests</Label>
+            <Label Grid.Row="2" Grid.Column="0" Margin="0,10,0,10">Duration of tour in hours</Label>
+            <Label Grid.Row="3" Grid.Column="0" Margin="0,10,0,10">City</Label>
+            <Label Grid.Row="4" Grid.Column="0" Margin="0,10,0,10">Country</Label>
+            <Label Grid.Row="5" Grid.Column="0" Margin="0,6,0,14">Description</Label>
+            <Label Grid.Row="6" Grid.Column="0" Margin="0,10,0,10">Language</Label>
+            <TextBox x:Name="TourNameTB" Grid.Row="0" Grid.Column="1" Text="{Binding Path=NameT,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10"/>
+            <TextBox x:Name="MaxGuestsTB" Grid.Row="1" Grid.Column="1" Text="{Binding Path=MaxGuests,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10"/>
+            <TextBox x:Name="DurationTB" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Duration,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10"/>
+            <TextBox x:Name="CityTB" Grid.Row="3" Grid.Column="1" Text="{Binding Path=City,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10"/>
+            <TextBox x:Name="CountryTB" Grid.Row="4" Grid.Column="1" Text="{Binding Path=Country,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10"/>
+            <TextBox x:Name="DescriptionTB" Grid.Row="5" Grid.Column="1" Text="{Binding Path=Description,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10"/>
+            <TextBox x:Name="LanguageTB" Grid.Row="6" Grid.Column="1" Text="{Binding Path=LanguageT,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10"/>
+            <Button x:Name="CheckPointTB" Grid.Row="9" Grid.Column="0" Click="AddCheckPoint" Margin="125,10,125,10">Add checkpoint</Button>
+            <Button Grid.Row="9" Grid.Column="1" Click="AddTourImage" Margin="125,10,125,10">Add tour image</Button>
+            <Button x:Name="AddNewTour" Height="30" Click="AddTour" Margin="125,141,125,-46" Grid.Row="10">Add Tour</Button>
+            <Button x:Name="Cancel" Height="30" Click="CancelTour" Margin="125,144,125,-43" Grid.Row="10" Grid.Column="1" >Cancel</Button>
+            <DataGrid x:Name="PointsGrid" IsReadOnly="True" Grid.Row="10" Grid.Column="0" ItemsSource="{Binding Path=TourPoints,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="0,9,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CheckPointName" Binding="{Binding Name}" Width="334"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="ImagesGrid" IsReadOnly="True" Grid.Row="10" Grid.Column="1" ItemsSource="{Binding Path=TourImages,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="0,9,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="TourImageUrl" Binding="{Binding Url}" Width="334"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="Add date and time for this tour"  Grid.Row="7" VerticalAlignment="Top" Height="30" Grid.Column="0" Margin="74,7,74,0"/>
+            <ListBox x:Name="DateTimeBox" Grid.Row="7" ItemsSource="{Binding Path=Instances}" Margin="0,10,0,10" Grid.Column="1" Grid.RowSpan="2"/>
+            <Button x:Name="NewDate" Content="+" Grid.Row="8" HorizontalAlignment="Center" Width="100"  Click="NewInstance" Height="30" Margin="0,0,0,20"/>
+            <Label x:Name="NameLabel" Grid.Column="1"  FontSize="9" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Width="192" Grid.RowSpan="2"/>
+            <Label Grid.Column="1" x:Name="MaxGuestLabel" FontSize="9" HorizontalAlignment="Left" Height="20" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="192"/>
+            <Label Grid.Column="1" x:Name="DurationLabel" FontSize="9" HorizontalAlignment="Left" Height="20" Grid.RowSpan="2" Grid.Row="2" VerticalAlignment="Center" Width="192"/>
+            <Label Grid.Column="1" x:Name="CityLabel" FontSize="9" HorizontalAlignment="Left" Height="19" Margin="0,41,0,0" Grid.RowSpan="2" Grid.Row="3" VerticalAlignment="Top" Width="192"/>
+            <Label Grid.Column="1" x:Name="CountryLabel" FontSize="9" HorizontalAlignment="Left" Height="20" Margin="0,40,0,0" Grid.RowSpan="2" Grid.Row="4" VerticalAlignment="Top" Width="192"/>
+            <Label Grid.Column="1" x:Name="DescriptionLabel" FontSize="9" HorizontalAlignment="Left" Height="20" Margin="0,40,0,0" Grid.RowSpan="2" Grid.Row="5" VerticalAlignment="Top" Width="192"/>
+            <Label Grid.Column="1" x:Name="LanguageLabel" FontSize="9" HorizontalAlignment="Left" Height="20" Grid.RowSpan="2" Grid.Row="6" VerticalAlignment="Center" Width="192"/>
+            <Label x:Name="PointLabel" FontSize="9" HorizontalAlignment="Left" Height="19" Margin="0,40,0,0" Grid.RowSpan="2" Grid.Row="9" VerticalAlignment="Top" Width="175"/>
+            <Label Grid.Column="1" FontSize="9" x:Name="ImageLabel" HorizontalAlignment="Left" Height="19" Margin="0,40,0,0" Grid.RowSpan="2" Grid.Row="9" VerticalAlignment="Top" Width="175"/>
+            <Label Grid.Column="1" x:Name="DateTimeLabel" FontSize="9" HorizontalAlignment="Left" Height="20" Grid.RowSpan="2" Grid.Row="8" VerticalAlignment="Center" Width="192"/>
+        </Grid>
+        <Label Content="                      FORM OF TOUR:" HorizontalAlignment="Left" Margin="201,9,0,0" VerticalAlignment="Top" Width="223"/>
+
+
+    </Grid>
+</Window>

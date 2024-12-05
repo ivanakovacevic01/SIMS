@@ -1,0 +1,29 @@
+﻿<Window x:Class="InitialProject.View.AvailableTours"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="AvailableTours" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="TourListDataGrid" ItemsSource="{Binding TourInstances,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" AutoGenerateColumns="False" VerticalAlignment="Top" HorizontalAlignment="Center" Height="360" Width="584" Margin="0,42,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Location" Width="1*" Binding="{Binding Tour.Location}"/>
+                <DataGridTextColumn Header="Duration" Width="1*" Binding="{Binding Tour.Duration}"/>
+                <DataGridTextColumn Header="Language" Width="1*" Binding="{Binding Tour.Language}"/>
+                <DataGridTextColumn  Width="1*" Header="Capacity" Binding="{Binding Tour.MaxGuests}"/>
+                <DataGridTemplateColumn x:Name="reservation" Header="Reservation"  Width="1.2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="reservationButton" Content="RESERVE" TextElement.FontWeight="ExtraBold" Click="Reserve"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="725,382,0,0" VerticalAlignment="Top" Click="Cancel_Click"/>
+    </Grid>
+</Window>
